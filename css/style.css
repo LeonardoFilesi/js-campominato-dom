@@ -46,6 +46,22 @@ body {
     font-size: 2.5rem;
 }
 
+.easy {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.medium{
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+}
+
+
+.hard{
+    height: calc(100% / 7);
+    width: calc(100% / 7);
+}
+
 .click-blu {
     background-color: blue;
 }
