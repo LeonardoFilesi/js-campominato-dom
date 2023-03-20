@@ -31,6 +31,19 @@ function gridGenerated(numberSquares) {
     return currentElement;
 }
 
+// Questa funzione è una lista randomica di numeri Bomba 
+function getNewRandomBombsArray (bombsNumber, min, max){
+    let blackList = [];
+    console.log(blackList);
+    let arrayBombs = [];
+    for (let i = 0; i < bombsNumber; i++ ){
+        let newBomb = generateUniqueRandomNumber(blackList, min, max);
+        arrayBombs.push(newBomb);
+    }
+    return arrayBombs;
+}
+
+
 // Questa funzione fa cambiare quanto la griglia è grande in base alla scelta della difficoltà
 function regulationGrid (modeUser) {
     if (modeUser === "easy"){
@@ -59,3 +72,5 @@ start.addEventListener('click', function() {
     grid.append(lastNumberGrid);  
     console.log(lastNumberGrid);     
 });
+
+// aggiungere bombe durante la creazione della griglia

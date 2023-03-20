@@ -66,6 +66,10 @@ body {
     background-color: blue;
 }
 
+.click-boom {
+    background-color: brown;
+}
+
 footer {
     background-color: rgb(33, 33, 33);
 }
