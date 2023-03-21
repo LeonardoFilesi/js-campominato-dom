@@ -18,6 +18,7 @@ let numberSquares = 100;
 
 // Questa funzione crea gli elementi all'interno della griglia:
 function gridGenerated(numberSquares) {
+    const clickedNumbers = [];
     let currentElement ="";
     let lastClass = difficulty.value; // inserisco difficoltà scelta
     /* grid.innerHTML = ""; */ // appunti solo perchè mi da errore
@@ -32,7 +33,7 @@ function gridGenerated(numberSquares) {
 }
 
 // Questa funzione è una lista randomica di numeri Bomba 
-function getNewRandomBombsArray (bombsNumber, min, max){
+/* function getNewRandomBombsArray (bombsNumber, min, max){
     let blackList = [];
     console.log(blackList);
     let arrayBombs = [];
@@ -42,7 +43,7 @@ function getNewRandomBombsArray (bombsNumber, min, max){
     }
     return arrayBombs;
 }
-
+ */
 
 // Questa funzione fa cambiare quanto la griglia è grande in base alla scelta della difficoltà
 function regulationGrid (modeUser) {
@@ -57,12 +58,36 @@ function regulationGrid (modeUser) {
 }
 
 // Questa funzione fa cambiar colore alla casella con un click
-function itemClick() {
+/* function itemClick() {
     console.log(this.innerText);    
     this.classList.add("click-blu");    
+} */
+const  bombsNumber = 16;
+let bombs;
+let maxClicks;
+
+
+
+function itemClick() {
+    const clickedNumber = parseInt(this.textContent);
+    if (bombs.includes(clickedNumber)) {
+        console.log("KABOOOOM");
+        this.classList.add("click-boom");
+        console.log("GAME OVER");
+    } else  {
+        console.log("non bomba");
+        this.classList.add("click-blu");
+        clickedNumbers.push(clickedNumber);
+        console.log(clickedNumbers);
+        if(clickedNumbers.lenght === maxClicks) {
+            console.log("YOU WON!");
+        }
+    }
 }
 
-// Questa funzione 
+
+
+// Questa funzione fa partire il gioco al click
 start.addEventListener('click', function() {
     const mode = difficulty.value; // modalita scelta dal menu a tendina
     console.log(mode);
@@ -74,3 +99,4 @@ start.addEventListener('click', function() {
 });
 
 // aggiungere bombe durante la creazione della griglia
+
